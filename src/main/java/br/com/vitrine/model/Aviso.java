@@ -41,6 +41,12 @@ public class Aviso {
 	public Date getData() {
 		return data;
 	}
+	
+	@Override
+	public String toString() {
+		return "Aviso [idAviso=" + idAviso + ", tituloAviso=" + tituloAviso + ", descricaoAviso=" + descricaoAviso
+				+ ", data=" + data + "]";
+	}
 	public void setData(Date data) {
 		this.data = data;
 	}
