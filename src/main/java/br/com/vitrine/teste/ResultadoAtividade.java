@@ -1,5 +1,8 @@
 package br.com.vitrine.teste;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ResultadoAtividade {
 	private int codigo;
 	private String mensagem;
