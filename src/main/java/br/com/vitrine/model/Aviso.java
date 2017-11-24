@@ -18,7 +18,7 @@ public class Aviso {
 	private String tituloAviso; 
 	private String descricaoAviso;
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date data;
+	private Date data = new Date();
 	
 	public int getIdAviso() {
 		return idAviso;
