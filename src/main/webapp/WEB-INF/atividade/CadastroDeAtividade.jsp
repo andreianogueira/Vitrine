@@ -110,22 +110,21 @@
 					</div>
 				</div>
 
-		<form:form name="formcliente" id="formcliente" action="" method="post">
+		<form:form name="formcliente" id="formcliente" action="" method="post" modelAttribute="atividade">
 			<br/>
 			
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email">Atividade:</form:label>
-						<form:input type="text" class="form-control" id="atividade" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
-						
+						<form:label for="email"  path="nomeAtividade">Atividade:</form:label>
+						<form:input type="text" class="form-control" id="atividade" path="nomeAtividade" maxlength="30" size="30" /> 
 					</div>
 				</div>
 
 
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="nome">Descrição:</form:label>
-						<form:input type="text" class="form-control" name="descricao" id="descricao" maxlength="50" size="50" />
+						<form:label for="nome" path="descricaoAtividade">Descrição:</form:label>
+						<form:input type="text" class="form-control" name="descricao" path="descricaoAtividade" id="descricao" maxlength="50" size="50" />
 					</div>
 				</div>
 
@@ -133,7 +132,7 @@
 		
 				<div class="row">
 					<div class="form-group col-md-6 col-sm-6">
-					<form:label for="cbLocal">Faixa etária:</form:label>
+					<form:label for="cbLocal" path="faixaEtaria">Faixa etária:</form:label>
 					<select id=cbLocal name=cbLocal class="form-control">
 					    <option value="0"> </option>
 					    <option value="1">0-4</option>
@@ -145,8 +144,8 @@
 					</div>
 
 					<div class="form-group col-md-6 col-sm-6">
-						<form:label for="inputdefault">Local:</form:label>
-						<form:input type="text" class="form-control dinheiro" name="local" id="local" maxlength="50" size="50" />
+						<form:label for="inputdefault" path="localAtividade">Local:</form:label>
+						<form:input type="text" class="form-control dinheiro" name="local" path="localAtividade" id="local" maxlength="50" size="50" />
 					</div>
 
 				</div>
@@ -154,18 +153,18 @@
 				<div class="row">
 
 					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="hora">Horário:</form:label>
-						<form:input type="text" class="form-control hora" name="horaatividade" id="horaatividade" maxlength="10" size="10" />
+						<form:label for="hora" path="horarioAtividade">Horário:</form:label>
+						<form:input type="text" class="form-control hora" name="horaatividade" path="horarioAtividade" id="horaatividade" maxlength="10" size="10" />
 					</div>
 					
 					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="dia">Dia da semana:</form:label>
-						<form:input type="text" id="dia" name="dia" class="form-control" maxlength="10" size="10" />
+						<form:label for="dia" path="diaSemana">Dia da semana:</form:label>
+						<form:input type="text" id="dia" path="diaSemana" name="dia" class="form-control" maxlength="10" size="10" />
 					</div>
 
 					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="inputdefault">Preço:</form:label>
-						<form:input type="text" class="form-control dinheiro" name="valorproduto" maxlength="14" size="14" />
+						<form:label for="inputdefault" path="precoAtividade">Preço:</form:label>
+						<form:input type="text" class="form-control dinheiro" path="precoAtividade" name="valorproduto" maxlength="14" size="14" />
 					</div>
 					
 				</div>

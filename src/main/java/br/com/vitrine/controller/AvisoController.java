@@ -38,5 +38,4 @@ public class AvisoController {
 		modelAviso.addObject("aviso", aviso);
 		return modelAviso;
 	}
-	
 }

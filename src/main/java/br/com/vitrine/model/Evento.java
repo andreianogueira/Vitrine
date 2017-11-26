@@ -1,7 +1,6 @@
 package br.com.vitrine.model;
 
 import java.util.Date;
-//import java.sql.Time;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,9 +17,8 @@ public class Evento {
 	private int idEvento;
 	private String nomeEvento;
 	private String descricaoEvento;
-	@Temporal(TemporalType.TIME)
-	private Date horarioEvento = new Date();
 	@Temporal(TemporalType.TIMESTAMP)
+	private Date horarioEvento = new Date();
 	private Date dataEvento = new Date();
 	private double precoEvento;
 	private String localEvento;

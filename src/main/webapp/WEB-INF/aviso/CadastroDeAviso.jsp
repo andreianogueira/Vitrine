@@ -7,7 +7,7 @@
 <html>
 <head>
 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <title>VITRINE </title>
 
   <!-- LINK PARA A BIBLIOTECA JQUERY -->
@@ -142,6 +142,6 @@
 		</form:form>
 
 	</section>
-
+</div>
 </body>
 </html>
