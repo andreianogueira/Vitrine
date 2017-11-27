@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>VITRINE </title>
+<title>VITRINE</title>
 
   <!-- LINK PARA A BIBLIOTECA JQUERY -->
   <!-- <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script> -->
@@ -35,16 +35,15 @@
 </head>
 <body>
 
-
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 		<a class="navbar-brand" href="home.html">VITRINE</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="CadastroDeMoradores.html">Morador</a>
+				<li class="nav-item active">
+					<a class="nav-link" href="CadastroDeMoradores.html">Morador<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="CadastroDeAtividade.html">Atividades</a>
@@ -55,8 +54,8 @@
 				<li class="nav-item">
 					<a class="nav-link" href="AdicionaAta.html">Atas</a>
 				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="CadastroDeEventos.html">Eventos<span class="sr-only">(current)</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="CadastroDeEventos.html">Eventos</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="Sugestao.html">Sugestões</a>
@@ -67,14 +66,14 @@
 			</ul>
 		</div>
 	</nav>
-	
-	<div id="main" class="container-fluid"><br>
+
+  <div id="main" class="container-fluid"><br>
 	<section class="container-fluid"><br>
 
 
 		<div class="jumbotron bg-warning">
 				<div class="container">
-					<h3 class="display-4 text-center ">Eventos</h3>
+					<h3 class="display-4 text-center ">Cadastro de Moradores</h3>
 				</div>
 			</div>
 
@@ -88,83 +87,58 @@
 
 		</div>
 
-			<form:form name="formevento" id="formevento" action="cadastra" method="post" modelAttribute= "evento">
-				<br/>
+		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" modelAttribute= "morador">
+			<br/>
+				<!-- <legend class="control-label">Dados do Cliente</legend> -->
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Descrição</th>
-      <th scope="col">Horário</th>
-      <th scope="col">Data</th>
-      <th scope="col">Preço</th>
-      <th scope="col">Local</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>		
-
-<hr>	
-
-					<div class="row">
+				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<button type="button" class="btn btn-info">Adicionar Evento</button>
+						<form:label for="email" path="nomeMorador">Nome morador:</form:label>
+						<form:input type="text" class="form-control" path="nomeMorador" id="atividade" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						
+					</div>
 				</div>
+
+
+				<div class="row">
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label for="nome" path="bloco">Bloco:</form:label>
+						<form:input type="text" class="form-control" path="bloco" name="descricao" id="descricao" maxlength="50" size="50" />
+					</div>
+
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label for="inputdefault" path="apartamento">Apartamento:</form:label>
+						<form:input type="text" class="form-control dinheiro" path="apartamento" name="local" id="local" maxlength="50" size="50" />
+					</div>
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label path="telefone">Telefone:</form:label>
+						<form:input type="text" id="telefone" path="telefone" class="form-control" name="telefone" maxlength="14" />
+					</div>
 				</div>
 				
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="nomeEvento">Nome:</form:label>
-						<form:input type="text" class="form-control" path="nomeEvento" id="nome" maxlength="30" size="30"/>			
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="nome" path="descricaoEvento">Descrição:</form:label>
-						<form:input type="text" class="form-control" name="descricao" path="descricaoEvento" id="descricao" maxlength="50" size="50"/>
+						<form:label for="email" path="email">Email:</form:label>
+						<form:input type="email" path="email" class="form-control" name="email" maxlength="30" size="30" title="Informe um e-mail válido" />
 					</div>
 				</div>
 				
-				<div class="row">
-
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="hora" path="horarioEvento">Horário:</form:label>
-						<form:input type="text" class="form-control" path="horarioEvento" id="horario" name="horario" maxlength="25" size="25"/>
-					</div>
-					
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="inputdefault" path="dataEvento">Data:</form:label>
-						<form:input type="date" class="form-control data" name="dataproduto" path="dataEvento" id="dataproduto" maxlength="10" size="10"/>
-					</div>
-
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="inputdefault" path="precoEvento">Preço:</form:label>
-						<form:input type="text" class="form-control dinheiro" name="valorevento" path="precoEvento" maxlength="14" size="14"/>
-					</div>
-					
-				</div>
+				<hr>
 				
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="nome" path="localEvento">Local:</form:label>
-						<form:input type="text" class="form-control" name="local" path="localEvento" id="local" maxlength="50" size="50"/>
-					</div>
-				</div>				
-
+				
 				<hr>
 				<div class="row">
 					<div class="col-md-12 col-sm-12">
 						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
 						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
+						<button type="button" class="btn btn-info">Adicionar Dependente</button>
 					</div>
 				</div>
+
+			</div> 
 				
-		</form:form>
+					</form:form>
 	</section>
-	</div>
+
 </body>
 </html>

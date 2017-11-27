@@ -16,7 +16,7 @@ import br.com.vitrine.repository.EventoRepository;
 
 @Controller
 @RequestMapping("/evento")
-public class eventoController {
+public class EventoController {
 	
 	@Autowired
 	EventoRepository repo;
