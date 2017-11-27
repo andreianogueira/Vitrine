@@ -16,6 +16,7 @@ public class Morador {
 	private String apartamento;
 	private String telefone;
 	private String email;
+	
 	public int getIdMorador() {
 		return idMorador;
 	}
