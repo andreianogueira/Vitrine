@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>    
@@ -23,7 +23,7 @@
   <!--LINK PARA O JQUERY MASK MONEY -->
   <script src="<c:url value="/js/jquery-maskmoney/jquery.maskmoney.js"></c:url>" type="text/javascript"></script>
 
-  <!--LINK PARA O JQUERY-UI - CALENDÁRIO - Fonte: https://jqueryui.com/ -->
+  <!--LINK PARA O JQUERY-UI - CALENDÃRIO - Fonte: https://jqueryui.com/ -->
   <link rel="stylesheet" href="<c:url value="/js/jquery-ui-1.11.4.custom/jquery-ui.css"></c:url>"></link>
   <script src="<c:url value="/js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></c:url>" type="text/javascript"></script>
   <script src="<c:url value="/js/jquery-ui-1.11.4.custom/jquery-ui.js"></c:url>" type="text/javascript"></script>
@@ -58,10 +58,10 @@
 					<a class="nav-link" href="CadastroDeEventos.html">Eventos</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="Sugestao.html">Sugestões</a>
+					<a class="nav-link" href="Sugestao.html">SugestÃµes</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="ReservaEspaco.html">Espaços</a>
+					<a class="nav-link" href="ReservaEspaco.html">EspaÃ§os</a>
 				</li>
 			</ul>
 		</div>
@@ -91,12 +91,12 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Atividade</th>
-      <th scope="col">Descrição</th>
-      <th scope="col">Faixa etária</th>
+      <th scope="col">DescriÃ§Ã£o</th>
+      <th scope="col">Faixa etÃ¡ria</th>
       <th scope="col">Local</th>
-      <th scope="col">Horário</th>
+      <th scope="col">HorÃ¡rio</th>
       <th scope="col">Dia da semana</th>
-      <th scope="col">Preço</th>
+      <th scope="col">PreÃ§o</th>
     </tr>
   </thead>
   <tbody>
@@ -110,7 +110,7 @@
 					</div>
 				</div>
 
-		<form:form name="formcliente" id="formcliente" action="" method="post" modelAttribute="atividade">
+		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" commandName="atividade">
 			<br/>
 			
 				<div class="row">
@@ -123,7 +123,7 @@
 
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="nome" path="descricaoAtividade">Descrição:</form:label>
+						<form:label for="nome" path="descricaoAtividade">DescriÃ§Ã£o:</form:label>
 						<form:input type="text" class="form-control" name="descricao" path="descricaoAtividade" id="descricao" maxlength="50" size="50" />
 					</div>
 				</div>
@@ -132,7 +132,7 @@
 		
 				<div class="row">
 					<div class="form-group col-md-6 col-sm-6">
-					<form:label for="cbLocal" path="faixaEtaria">Faixa etária:</form:label>
+					<form:label for="cbLocal" path="faixaEtaria">Faixa etÃ¡ria:</form:label>
 					<select id=cbLocal name=cbLocal class="form-control">
 					    <option value="0"> </option>
 					    <option value="1">0-4</option>
@@ -153,8 +153,8 @@
 				<div class="row">
 
 					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="hora" path="horarioAtividade">Horário:</form:label>
-						<form:input type="text" class="form-control hora" name="horaatividade" path="horarioAtividade" id="horaatividade" maxlength="10" size="10" />
+						<form:label for="hora" path="horarioAtividade">HorÃ¡rio:</form:label>
+						<form:input type="text" class="form-control hora" name="horarioAtividade" path="horarioAtividade" id="horaatividade" maxlength="10" size="10" />
 					</div>
 					
 					<div class="form-group col-md-4 col-sm-4">
@@ -163,7 +163,7 @@
 					</div>
 
 					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="inputdefault" path="precoAtividade">Preço:</form:label>
+						<form:label for="inputdefault" path="precoAtividade">PreÃ§o:</form:label>
 						<form:input type="text" class="form-control dinheiro" path="precoAtividade" name="valorproduto" maxlength="14" size="14" />
 					</div>
 					

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>   
@@ -24,7 +24,7 @@
   <!--LINK PARA O JQUERY MASK MONEY -->
   <script src="<c:url value="/js/jquery-maskmoney/jquery.maskmoney.js"></c:url>" type="text/javascript"></script>
 
-  <!--LINK PARA O JQUERY-UI - CALEND¡RIO - Fonte: https://jqueryui.com/ -->
+  <!--LINK PARA O JQUERY-UI - CALEND√ÅRIO - Fonte: https://jqueryui.com/ -->
   <link rel="stylesheet" href="<c:url value="/js/jquery-ui-1.11.4.custom/jquery-ui.css"></c:url>"></link>
   <script src="<c:url value="/js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></c:url>" type="text/javascript"></script>
   <script src="<c:url value="/js/jquery-ui-1.11.4.custom/jquery-ui.js"></c:url>" type="text/javascript"></script>
@@ -59,10 +59,10 @@
 					<a class="nav-link" href="CadastroDeEventos.html">Eventos</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="Sugestao.html">Sugestıes</a>
+					<a class="nav-link" href="Sugestao.html">Sugest√µes</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="ReservaEspaco.html">EspaÁos</a>
+					<a class="nav-link" href="ReservaEspaco.html">Espa√ßos</a>
 				</li>
 			</ul>
 		</div>
@@ -95,8 +95,8 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">TÌtulo</th>
-      <th scope="col">DescriÁ„o</th>
+      <th scope="col">T√≠tulo</th>
+      <th scope="col">Descri√ß√£o</th>
       <th scope="col">Data</th>
     </tr>
   </thead>
@@ -112,7 +112,7 @@
 				
 					<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="tituloAviso">TÌtulo:</form:label>
+						<form:label for="email" path="tituloAviso">T√≠tulo:</form:label>
 						<form:input type="text" class="form-control" path="tituloAviso" id="tituloAviso" maxlength="30" size="30"/>
 						
 					</div>
@@ -120,7 +120,7 @@
 
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="nome" path="descricaoAviso">DescriÁ„o:</form:label>
+						<form:label for="nome" path="descricaoAviso">Descri√ß√£o:</form:label>
 						<form:input type="text" class="form-control" path="descricaoAviso" id="descricaoAviso" maxlength="50" size="50"/>
 					</div>
 				</div>
