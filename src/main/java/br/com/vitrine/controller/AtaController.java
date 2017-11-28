@@ -36,6 +36,7 @@ public class AtaController {
 		Ata ata = new Ata();
 		ModelAndView modelAta = new ModelAndView("ata/AdicionaAta");
 		modelAta.addObject("ata", ata);
+		modelAta.addObject("listaAta",repo.findAll());
 		return modelAta;
 	}
 }

@@ -36,6 +36,7 @@ public class AtividadeController {
 		Atividade atividade = new Atividade();
 		ModelAndView modelAtividade = new ModelAndView("atividade/CadastroDeAtividade");
 		modelAtividade.addObject("atividade", atividade);
+		modelAtividade.addObject("listaAtividade", repo.findAll());
 		return modelAtividade;
 	}
 }

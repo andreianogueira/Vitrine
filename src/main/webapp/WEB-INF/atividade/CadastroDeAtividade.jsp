@@ -97,9 +97,22 @@
       <th scope="col">Horário</th>
       <th scope="col">Dia da semana</th>
       <th scope="col">Preço</th>
+      <th scope="col">Opções</th>
     </tr>
   </thead>
   <tbody>
+  	<c:forEach items="${listaAtividade}" var="itemAtividade">
+  	<tr>
+  		<th scope="row">${itemAtividade.idAtividade}</th>
+  		<td>${itemAtividade.nomeAtividade}</td>
+  		<td>${itemAtividade.descricaoAtividade}</td>
+  		<td>${itemAtividade.faixaEtaria}</td>
+  		<td>${itemAtividade.localAtividade}</td>
+  		<td>${itemAtividade.horarioAtividade}</td>
+  		<td>${itemAtividade.diaSemana}</td>
+  		<td>${itemAtividade.precoAtividade}</td>
+  	</tr>	
+  	</c:forEach>
   </tbody>
 </table>
 
@@ -133,7 +146,7 @@
 				<div class="row">
 					<div class="form-group col-md-6 col-sm-6">
 					<form:label for="cbLocal" path="faixaEtaria">Faixa etária:</form:label>
-					<select id=cbLocal name=cbLocal class="form-control">
+					<select id=cbLocal name=cbLocal path="faixaEtaria" class="form-control">
 					    <option value="0"> </option>
 					    <option value="1">0-4</option>
 					    <option value="2">5-14</option>

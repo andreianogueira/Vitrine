@@ -36,6 +36,7 @@ public class ReservaController {
 		Reserva reserva = new Reserva();
 		ModelAndView modelReserva = new ModelAndView("reserva/ReservaEspaco");
 		modelReserva.addObject("reserva", reserva);
+		modelReserva.addObject("listaReserva", repo.findAll());
 		return modelReserva;
 	}
 }

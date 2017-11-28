@@ -98,11 +98,24 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Morador</th>
+      <th scope="col">Bloco</th>
+      <th scope="col">Apartamento</th>
       <th scope="col">Sugestão</th>
       <th scope="col">Resposta</th>
+      <th scope="col">Opções</th>
     </tr>
   </thead>
   <tbody>
+  <c:forEach items="${listaSugestao}" var="itemSugestao">
+  		<tr>
+  			<th scope="row">${itemSugestao.idSugestao}</th>
+  			<td>${itemSugestao.nomeMorador}</td>
+  			<td>${itemSugestao.bloco}</td>
+  			<td>${itemSugestao.apartamento}</td>
+  			<td>${itemSugestao.descricaoSugestao}</td>
+  			<td>${itemSugestao.resposta}</td>
+  		</tr>
+  	</c:forEach>
   </tbody>
 </table>
 

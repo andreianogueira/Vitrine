@@ -97,9 +97,18 @@
       <th scope="col">Tipo Reunião</th>
       <th scope="col">Ata</th>
       <th scope="col">Data</th>
+      <th scope="col">Opções</th>
     </tr>
   </thead>
   <tbody>
+  <c:forEach items="${listaAta}" var="itemAta">
+  	<tr>
+  		<th scope="row">${itemAta.idAta}</th>
+  		<td>${itemAta.tipoReuniao}</td>
+  		<td>${itemAta.nomeAta}</td>
+  		<td>${itemAta.dataReuniao}</td>
+  	</tr>
+  </c:forEach>
   </tbody>
 </table>		
 

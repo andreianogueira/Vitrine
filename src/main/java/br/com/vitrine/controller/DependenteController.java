@@ -36,6 +36,7 @@ public class DependenteController {
 		Dependente dependente = new Dependente();
 		ModelAndView modelDependente = new ModelAndView("dependente/CadastroDeDependente");
 		modelDependente.addObject("dependente", dependente);
+		modelDependente.addObject("listaDependente", repo.findAll());
 		return modelDependente;
 	}
 	

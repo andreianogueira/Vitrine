@@ -10,7 +10,7 @@ public class Sugestao {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id_sugestao;
+	private int idSugestao;
 	private int idMorador;
     private String nomeMorador;
     private String bloco;
@@ -18,13 +18,13 @@ public class Sugestao {
     private String descricaoSugestao;
     private String resposta;
     
-	public int getId_sugestao() {
-		return id_sugestao;
+	public int getIdSugestao() {
+		return idSugestao;
 	}
 
 
-	public void setId_sugestao(int id_sugestao) {
-		this.id_sugestao = id_sugestao;
+	public void setIdSsugestao(int idSugestao) {
+		this.idSugestao = idSugestao;
 	}
 
 
@@ -89,7 +89,7 @@ public class Sugestao {
 
 	@Override
 	public String toString() {
-		return "Sugestao [id_sugestao=" + id_sugestao + ", idMorador=" + idMorador + ", nomeMorador=" + nomeMorador
+		return "Sugestao [idSugestao=" + idSugestao + ", idMorador=" + idMorador + ", nomeMorador=" + nomeMorador
 				+ ", bloco=" + bloco + ", apartamento=" + apartamento + ", descricaoSugestao=" + descricaoSugestao
 				+ ", resposta=" + resposta + "]";
 	}

@@ -86,6 +86,28 @@
 		<div id="mensagens" class="alert alert-danger" style="display:none">
 
 		</div>
+		
+		<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Parentesco</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+  <c:forEach items="${listaDependente}" var="itemDependente">
+  		<tr>
+  			<th scope="row">${itemDependente.idDependente}</th>
+  			<td>${itemDependente.nomeDependente}</td>
+  			<td>${itemDependente.parentesco}</td>
+  			<td>${itemDependente.telefone}</td>
+  		</tr>
+  	</c:forEach>
+  </tbody>
+</table>
 
 		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" modelAttribute= "dependente">
 			<br/>

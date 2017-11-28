@@ -97,11 +97,24 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Morador</th>
+      <th scope="col">Bloco</th>
+      <th scope="col">Apatamento</th>
       <th scope="col">Tipo de espaço</th>
       <th scope="col">Data</th>
+      <th scope="col">Opções</th>
     </tr>
   </thead>
   <tbody>
+  <c:forEach items="${listaReserva}" var="itemReserva">
+  		<tr>
+  			<th scope="row">${itemReserva.idReserva}</th>
+  			<td>${itemReserva.nomeMorador}</td>
+  			<td>${itemReserva.bloco}</td>
+  			<td>${itemReserva.apartamento}</td>
+  			<td>${itemReserva.tipoEspaco}</td>
+  			<td>${itemReserva.dataReserva}</td>
+  		</tr>
+  	</c:forEach>
   </tbody>
 </table>
 

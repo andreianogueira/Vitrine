@@ -17,8 +17,8 @@ public class Evento {
 	private int idEvento;
 	private String nomeEvento;
 	private String descricaoEvento;
+	private String horarioEvento;
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date horarioEvento = new Date();
 	private Date dataEvento = new Date();
 	private double precoEvento;
 	private String localEvento;
@@ -41,10 +41,10 @@ public class Evento {
 	public void setDescricaoEvento(String descricaoEvento) {
 		this.descricaoEvento = descricaoEvento;
 	}
-	public Date getHorarioEvento() {
+	public String getHorarioEvento() {
 		return horarioEvento;
 	}
-	public void setHorarioEvento(Date horarioEvento) {
+	public void setHorarioEvento(String horarioEvento) {
 		this.horarioEvento = horarioEvento;
 	}
 	public Date getDataEvento() {
@@ -66,5 +66,10 @@ public class Evento {
 		this.localEvento = localEvento;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Evento [idEvento=" + idEvento + ", nomeEvento=" + nomeEvento + ", descricaoEvento=" + descricaoEvento
+				+ ", horarioEvento=" + horarioEvento + ", dataEvento=" + dataEvento + ", precoEvento=" + precoEvento
+				+ ", localEvento=" + localEvento + "]";
+	}	
 }

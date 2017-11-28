@@ -36,6 +36,7 @@ public class EventoController {
 		Evento evento = new Evento();
 		ModelAndView modelEvento = new ModelAndView("evento/CadastroDeEvento");
 		modelEvento.addObject("evento", evento);
+		modelEvento.addObject("listaEvento", repo.findAll());
 		return modelEvento;
 	}
 }

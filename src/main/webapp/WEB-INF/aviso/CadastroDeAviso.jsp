@@ -98,6 +98,7 @@
       <th scope="col">Título</th>
       <th scope="col">Descrição</th>
       <th scope="col">Data</th>
+      <th scope="col">Opções</th>
     </tr>
   </thead>
   <tbody>

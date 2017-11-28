@@ -36,6 +36,7 @@ public class MoradorController {
 		Morador morador = new Morador();
 		ModelAndView modelMorador = new ModelAndView("morador/CadastroDeMorador");
 		modelMorador.addObject("morador", morador);
+		modelMorador.addObject("listaMorador", repo.findAll());
 		return modelMorador;
 	}
 }

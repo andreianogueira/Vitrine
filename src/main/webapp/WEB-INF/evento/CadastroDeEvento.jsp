@@ -101,9 +101,21 @@
       <th scope="col">Data</th>
       <th scope="col">Preço</th>
       <th scope="col">Local</th>
+      <th scope="col">Opções</th>
     </tr>
   </thead>
   <tbody>
+  	<c:forEach items="${listaEvento}" var="itemEvento">
+  		<tr>
+  			<th scope="row">${itemEvento.idEvento}</th>
+  			<td>${itemEvento.nomeEvento}</td>
+  			<td>${itemEvento.descricaoEvento}</td>
+  			<td>${itemEvento.horarioEvento}</td>
+  			<td>${itemEvento.dataEvento}</td>
+  			<td>${itemEvento.precoEvento}</td>
+  			<td>${itemEvento.localEvento}</td>
+  		</tr>
+  	</c:forEach>
   </tbody>
 </table>		
 

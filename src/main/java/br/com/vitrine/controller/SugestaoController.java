@@ -36,6 +36,7 @@ public class SugestaoController {
 		Sugestao sugestao = new Sugestao();
 		ModelAndView modelSugestao = new ModelAndView("sugestao/AdicionaSugestao");
 		modelSugestao.addObject("sugestao", sugestao);
+		modelSugestao.addObject("listaSugestao", repo.findAll());
 		return modelSugestao;
 	}
 }

@@ -86,6 +86,32 @@
 		<div id="mensagens" class="alert alert-danger" style="display:none">
 
 		</div>
+		
+		<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Bloco</th>
+      <th scope="col">Apartamento</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+  <c:forEach items="${listaMorador}" var="itemMorador">
+  		<tr>
+  			<th scope="row">${itemMorador.idMorador}</th>
+  			<td>${itemMorador.nomeMorador}</td>
+  			<td>${itemMorador.bloco}</td>
+  			<td>${itemMorador.apartamento}</td>
+  			<td>${itemMorador.telefone}</td>
+  			<td>${itemMorador.email}</td>
+  		</tr>
+  	</c:forEach>
+  </tbody>
+</table>
 
 		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" modelAttribute= "morador">
 			<br/>
