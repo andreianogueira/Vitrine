@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>     
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>VITRINE</title>
 
-  <!-- LINK PARA A BIBLIOTECA JQUERY -->
+<!-- LINK PARA A BIBLIOTECA JQUERY -->
   <!-- <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script> -->
   <script src="<c:url value="/js/jquery-3.2.1.min.js"></c:url>" type="text/javascript"></script>
 
@@ -42,8 +42,8 @@
 				</button>
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="CadastroDeMoradores.html">Morador<span class="sr-only">(current)</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="CadastroDeMoradores.html">Morador</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="CadastroDeAtividade.html">Atividades</a>
@@ -51,8 +51,8 @@
 				<li class="nav-item">
 					<a class="nav-link" href="CadastroDeAviso.html">Avisos</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="AdicionaAta.html">Atas</a>
+				<li class="nav-item active">
+					<a class="nav-link" href="AdicionaAta.html" >Atas<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="CadastroDeEventos.html">Eventos</a>
@@ -66,67 +66,82 @@
 			</ul>
 		</div>
 	</nav>
-
+	
 	<div id="main" class="container-fluid"><br>
 	<section class="container-fluid"><br>
 
 
 		<div class="jumbotron bg-warning">
 				<div class="container">
-					<h3 class="display-4 text-center ">Cadastro de Dependentes</h3>
+					<h3 class="display-4 text-center ">Atas</h3>
 				</div>
 			</div>
-
-		<c:if test = "${not empty mensagem}">	
+			
+			<c:if test = "${not empty mensagem}">	
 		<div class="alert alert-success" >
  			 <strong>Sucesso!</strong> <c:out value="${mensagem}"/>
 		</div>
 		</c:if>
-		
+
 		<div id="mensagens" class="alert alert-danger" style="display:none">
 
 		</div>
 
-		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" modelAttribute= "dependente">
-			<br/>
-			
-			<div class="row">
+		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" commandName="ata">
+			<fieldset>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tipo Reunião</th>
+      <th scope="col">Ata</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>		
+
+<hr>	
+
+					<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="nomeDependente">Nome:</form:label>
-						<form:input type="text" class="form-control" path="nomeDependente" id="atividade" maxlength="30" size="30" /> 
-					</div>
+						<button type="button" class="btn btn-info">Atas</button>
 				</div>
-				
-			<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="idMorador">idMorador:</form:label>
-						<form:input type="text" class="form-control" path="idMorador" id="atividade" maxlength="30" size="30" /> 
-					</div>
 				</div>
-				
 				
 				<div class="row">
 					<div class="form-group col-md-6 col-sm-6">
-						<form:label for="nome" path="parentesco">Parentesco:</form:label>
-						<form:input type="text" class="form-control" path="parentesco" name="descricao" id="descricao" maxlength="50" size="50" />
+						<form:label for="email" path="tipoReuniao">Tipo de Reunião:</form:label>
+						<form:input type="text" class="form-control" path="tipoReuniao" id="nome" maxlength="30" size="30"/>
+						
 					</div>
-					
+			
 					<div class="form-group col-md-6 col-sm-6">
-						<form:label path="telefone">Telefone:</form:label>
-						<form:input type="text" id="telefone" path="telefone" class="form-control" name="telefone" maxlength="14" />
+						<form:label for="nome" path="nomeAta">Ata:</form:label>
+						<form:input type="text" class="form-control" path="nomeAta" name="descricao" id="descricao" maxlength="50" size="50" />
 					</div>
 				</div>
 				
-				<hr>
+					<div class="row">
+					<div class="form-group col-md-6 col-sm-6">
+						<form:label for="inputdefault" path="dataReuniao">Data:</form:label>
+						<form:input type="date" class="form-control data" path="dataReuniao" name="dataproduto" id="dataproduto" maxlength="10" size="10" />
+				</div>
+				</div>
+				
 				<div class="row">
 					<div class="col-md-12 col-sm-12">
 						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
 						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
 					</div>
 				</div>
-			
-	</form:form>
+			</fieldset>
+
+		</form:form>
+
 	</section>
-	</div>
+</div>
 </body>
 </html>

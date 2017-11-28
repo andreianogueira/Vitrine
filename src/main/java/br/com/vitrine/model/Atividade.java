@@ -1,13 +1,9 @@
 package br.com.vitrine.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 public class Atividade {
@@ -19,8 +15,7 @@ public class Atividade {
 	private String descricaoAtividade;
 	private String faixaEtaria;
 	private String localAtividade;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date horarioAtividade = new Date();
+	private String horarioAtividade;
 	private String  diaSemana;
 	private double precoAtividade;
 	
@@ -54,10 +49,10 @@ public class Atividade {
 	public void setLocalAtividade(String localAtividade) {
 		this.localAtividade = localAtividade;
 	}
-	public Date getHorarioAtividade() {
+	public String getHorarioAtividade() {
 		return horarioAtividade;
 	}
-	public void setHorarioAtividade(Date horarioAtividade) {
+	public void setHorarioAtividade(String horarioAtividade) {
 		this.horarioAtividade = horarioAtividade;
 	}
 	public String getDiaSemana() {
