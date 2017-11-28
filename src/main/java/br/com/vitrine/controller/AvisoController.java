@@ -36,6 +36,7 @@ public class AvisoController {
 		Aviso aviso = new Aviso();
 		ModelAndView modelAviso = new ModelAndView("aviso/CadastroDeAviso");
 		modelAviso.addObject("aviso", aviso);
+		modelAviso.addObject("listaAviso", repo.findAll());
 		return modelAviso;
 	}
 }

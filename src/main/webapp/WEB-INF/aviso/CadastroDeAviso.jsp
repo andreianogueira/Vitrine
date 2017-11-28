@@ -101,6 +101,14 @@
     </tr>
   </thead>
   <tbody>
+  <c:forEach items="${listaAviso}" var="itemAviso">
+  	<tr>
+      <th scope="row">${itemAviso.idAviso}</th>
+      <td>${itemAviso.tituloAviso}</td>
+      <td>${itemAviso.descricaoAviso}</td>
+      <td>${itemAviso.data}</td>
+    </tr>
+  </c:forEach>
   </tbody>
 </table>
 
