@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,6 +38,24 @@ public class AtaController {
 		ModelAndView modelAta = new ModelAndView("ata/AdicionaAta");
 		modelAta.addObject("ata", ata);
 		modelAta.addObject("listaAta",repo.findAll());
+		return modelAta;
+	}
+	
+	@PostMapping("/deleta")
+	public ModelAndView deletarAta(@ModelAttribute("ata") @Valid Ata ata, BindingResult result) {
+		repo.delete(ata);
+		ModelAndView modelAta = new ModelAndView("ata/AdicionaAta");
+		modelAta.addObject("ata", new Ata());
+		modelAta.addObject("mensagem", "Deletado com sucesso");
+		return modelAta;
+	}
+	
+	@GetMapping("/altera/{id}")
+	public ModelAndView alteraAviso(@PathVariable("id") int id) {
+		Ata ata = repo.getOne(id);
+		ModelAndView modelAta = new ModelAndView("ata/AdicionaAta");
+		modelAta.addObject("ata", ata);
+		modelAta.addObject("listaAta", repo.findAll());
 		return modelAta;
 	}
 }

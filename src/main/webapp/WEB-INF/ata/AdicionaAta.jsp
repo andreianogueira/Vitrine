@@ -88,8 +88,49 @@
 		</div>
 
 		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" commandName="ata">
-			<fieldset>
+			<fieldset>		
 
+<hr>	
+
+					<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<button type="button" class="btn btn-info">Atas</button>
+				</div>
+				
+				</div>
+				
+				<form:input value="${ata.idAta}" type="hidden" path="idAta"/>
+				
+				<div class="row">
+					<div class="form-group col-md-6 col-sm-6">
+						<form:label for="email" path="tipoReuniao">Tipo de Reunião:</form:label>
+						<form:input value="${ata.tipoReuniao}" type="text" class="form-control" path="tipoReuniao" id="nome" maxlength="30" size="30"/>
+						
+					</div>
+			
+					<div class="form-group col-md-6 col-sm-6">
+						<form:label for="nome" path="nomeAta">Ata:</form:label>
+						<form:input value="${ata.nomeAta}" type="text" class="form-control" path="nomeAta" name="descricao" id="descricao" maxlength="50" size="50" />
+					</div>
+				</div>
+				
+					<div class="row">
+					<div class="form-group col-md-6 col-sm-6">
+						<form:label for="inputdefault" path="dataReuniao">Data:</form:label>
+						<form:input value="${ata.dataReuniao}" type="date" class="form-control data" path="dataReuniao" name="dataproduto" id="dataproduto" maxlength="10" size="10" />
+				</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
+						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
+					</div>
+				</div>
+			</fieldset>
+
+		</form:form>
+<br><br>
 <table class="table table-sm">
   <thead>
     <tr>
@@ -107,48 +148,16 @@
   		<td>${itemAta.tipoReuniao}</td>
   		<td>${itemAta.nomeAta}</td>
   		<td>${itemAta.dataReuniao}</td>
+  		<td>
+		      	<a href="/vitrine/ata/altera/${itemAta.idAta}" class="btn btn-info">editar</a>
+		      	<form:form name="formata" id="formata" action="/vitrine/ata/deleta" method="post" commandName="ata">
+		      			<form:input value="${itemAta.idAta}" type="hidden" path="idAta"/>
+		      			<button type="submit" id="btsalvar" class="btn btn-danger"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Deletar</button>
+		      	</form:form>
   	</tr>
   </c:forEach>
   </tbody>
-</table>		
-
-<hr>	
-
-					<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<button type="button" class="btn btn-info">Atas</button>
-				</div>
-				</div>
-				
-				<div class="row">
-					<div class="form-group col-md-6 col-sm-6">
-						<form:label for="email" path="tipoReuniao">Tipo de Reunião:</form:label>
-						<form:input type="text" class="form-control" path="tipoReuniao" id="nome" maxlength="30" size="30"/>
-						
-					</div>
-			
-					<div class="form-group col-md-6 col-sm-6">
-						<form:label for="nome" path="nomeAta">Ata:</form:label>
-						<form:input type="text" class="form-control" path="nomeAta" name="descricao" id="descricao" maxlength="50" size="50" />
-					</div>
-				</div>
-				
-					<div class="row">
-					<div class="form-group col-md-6 col-sm-6">
-						<form:label for="inputdefault" path="dataReuniao">Data:</form:label>
-						<form:input type="date" class="form-control data" path="dataReuniao" name="dataproduto" id="dataproduto" maxlength="10" size="10" />
-				</div>
-				</div>
-				
-				<div class="row">
-					<div class="col-md-12 col-sm-12">
-						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
-						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
-					</div>
-				</div>
-			</fieldset>
-
-		</form:form>
+</table>
 
 	</section>
 </div>
