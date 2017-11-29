@@ -90,7 +90,7 @@
 		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" commandName="ata">
 			<fieldset>
 
-<table class="table table-bordered">
+<table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">#</th>

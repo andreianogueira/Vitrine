@@ -92,7 +92,7 @@
 
 					<fieldset>
 			
-				<table class="table table-bordered">
+				<table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">#</th>

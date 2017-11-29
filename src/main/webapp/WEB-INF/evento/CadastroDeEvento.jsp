@@ -91,7 +91,7 @@
 			<form:form name="formevento" id="formevento" action="cadastra" method="post" modelAttribute= "evento">
 				<br/>
 
-<table class="table table-bordered">
+<table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">#</th>

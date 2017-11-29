@@ -93,7 +93,7 @@
 					<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
 					
-<table class="table table-bordered">
+<table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">#</th>
