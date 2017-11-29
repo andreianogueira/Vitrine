@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -87,42 +88,21 @@
 
 		</div>
 
-		<form:form name="formaviso" id="formaviso" action="cadastra" method="post" commandName="aviso">
+		<form:form name="formaviso" id="formaviso" action="/vitrine/aviso/cadastra" method="post" commandName="aviso">
 			<fieldset>
-					
-					
-<table class="table table-sm">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Título</th>
-      <th scope="col">Descrição</th>
-      <th scope="col">Data</th>
-      <th scope="col">Opções</th>
-    </tr>
-  </thead>
-  <tbody>
-  <c:forEach items="${listaAviso}" var="itemAviso">
-  	<tr>
-      <th scope="row">${itemAviso.idAviso}</th>
-      <td>${itemAviso.tituloAviso}</td>
-      <td>${itemAviso.descricaoAviso}</td>
-      <td>${itemAviso.data}</td>
-    </tr>
-  </c:forEach>
-  </tbody>
-</table>
 
-<div class="row">
+				<div class="row">
 					<div class="col-md-12 col-sm-12">
 						<button type="button" class="btn btn-info">Adicionar Aviso</button>
 					</div>
 				</div>
+					
+					<form:input value="${aviso.idAviso}" type="hidden" path="idAviso"/>
 				
 					<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="email" path="tituloAviso">Título:</form:label>
-						<form:input type="text" class="form-control" path="tituloAviso" id="tituloAviso" maxlength="30" size="30"/>
+						<form:input value="${aviso.tituloAviso }" type="text" class="form-control" path="tituloAviso" id="tituloAviso" maxlength="30" size="30"/>
 						
 					</div>
 				</div>
@@ -130,16 +110,16 @@
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="nome" path="descricaoAviso">Descrição:</form:label>
-						<form:input type="text" class="form-control" path="descricaoAviso" id="descricaoAviso" maxlength="50" size="50"/>
+						<form:input value="${aviso.descricaoAviso }" type="text" class="form-control" path="descricaoAviso" id="descricaoAviso" maxlength="50" size="50"/>
 					</div>
 				</div>
 				
 				<div class="form-group col-md-6 col-sm-6">
 					<form:label for="inputdefault" path="data">Data:</form:label>
-					<form:input type="date" class="form-control data" path="data" id="data" maxlength="10" size="10" />
+					<form:input value="${aviso.data }" type="date" class="form-control data" path="data" id="data" maxlength="10" size="10" />
 				</div>
 
-<hr>
+				<hr>
 				<div class="row">
 					<div class="col-md-12 col-sm-12">
 						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
@@ -149,6 +129,34 @@
 			</fieldset>
 
 		</form:form>
+		<br><br>
+		<table class="table table-sm">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Título</th>
+		      <th scope="col">Descrição</th>
+		      <th scope="col">Data</th>
+		      <th scope="col">Opções</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  <c:forEach items="${listaAviso}" var="itemAviso">
+		  	<tr>
+		      <th scope="row">${itemAviso.idAviso}</th>
+		      <td>${itemAviso.tituloAviso}</td>
+		      <td>${itemAviso.descricaoAviso}</td>
+		      <td>${itemAviso.data}</td>
+		      <td>
+		      	<a href="/vitrine/aviso/altera/${itemAviso.idAviso}" class="btn btn-info">editar</a>
+		      	<form:form name="formaviso" id="formaviso" action="/vitrine/aviso/deleta" method="post" commandName="aviso">
+		      			<form:input value="${itemAviso.idAviso}" type="hidden" path="idAviso"/>
+		      			<button type="submit" id="btsalvar" class="btn btn-danger"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Deletar</button>
+		      	</form:form>
+		    </tr>
+		  </c:forEach>
+		  </tbody>
+		</table>
 
 	</section>
 </div>
