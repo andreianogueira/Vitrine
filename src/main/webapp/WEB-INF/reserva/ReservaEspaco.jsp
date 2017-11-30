@@ -87,30 +87,28 @@
 
 		</div>
 
-		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" modelAttribute= "reserva">
+		<form:form name="formcliente" id="formcliente" action="/vitrine/reserva/cadastra" method="post" modelAttribute= "reserva">
 			<br/>
 
 					<fieldset>
-			
-				
 
-
-
-	<div class="row">
+				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
 						<button type="button" class="btn btn-info">Reservar Espaço</button>
+					</div>
 				</div>
-				</div>
+				
+				<form:input value="${reserva.idReserva}" type="hidden" path="idReserva"/>
 				
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="email" path="idMorador">Id do morador:</form:label>
-						<form:input type="text" class="form-control" path="idMorador" id="nome" maxlength="30" size="30" /> 
+						<form:input type="text" value="${reserva.idMorador}" class="form-control" path="idMorador" id="nome" maxlength="30" size="30" /> 
 						
 					</div>
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="email" path="nomeMorador">Nome do morador:</form:label>
-						<form:input type="text" class="form-control" path="nomeMorador" id="nome" maxlength="30" size="30" /> 
+						<form:input type="text" value="${reserva.nomeMorador}" class="form-control" path="nomeMorador" id="nome" maxlength="30" size="30" /> 
 						
 					</div>
 				</div>
@@ -118,12 +116,12 @@
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="email" path="bloco">Bloco:</form:label>
-						<form:input type="text" class="form-control" path="bloco" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						<form:input value="${reserva.bloco}" type="text" class="form-control" path="bloco" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
 						
 					</div>
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="email" path="apartamento">Apartamento:</form:label>
-						<form:input type="text" class="form-control" path="apartamento" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						<form:input value="${reserva.apartamento}" type="text" class="form-control" path="apartamento" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
 						
 					</div>
 				</div>
@@ -131,17 +129,17 @@
 <div class="row">
 					<div class="form-group col-md-6 col-sm-6">
 					<form:label for="cbLocal" path="tipoEspaco">Tipo de espaço:</form:label>
-					<select id=cbLocal name=cbLocal class="form-control">
+					<select value="${reserva.tipoEspaco}" path="tipoEspaco" id=cbLocal name=cbLocal class="form-control">
 					    <option value="0"></option>
-					    <option value="1">Churrasqueira</option>
-					    <option value="2">Salão de festas</option>
+					    <option value="Churrasqueira">Churrasqueira</option>
+					    <option value="Salao de festas">Salão de festas</option>
 						</select>
 				</div>
   
   
 <div class="form-group col-md-6 col-sm-6">
 	<form:label for="inputdefault" path="dataReserva">Data:</form:label>
-	<form:input type="date" class="form-control data" path="dataReserva" name="dataproduto" id="dataproduto" maxlength="10" size="10" />
+	<form:input value="${reserva.dataReserva}" type="date" class="form-control data" path="dataReserva" name="dataproduto" id="dataproduto" maxlength="10" size="10" />
 </div>
 
 </div>
@@ -158,7 +156,7 @@
 
 					</form:form>
 					
-					<table class="table table-sm">
+<table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -179,6 +177,12 @@
   			<td>${itemReserva.apartamento}</td>
   			<td>${itemReserva.tipoEspaco}</td>
   			<td>${itemReserva.dataReserva}</td>
+  			<td>
+  				<a href="/vitrine/reserva/altera/${itemReserva.idReserva}" class="btn btn-info">editar</a>
+		      	<form:form name="formespaco" id="formespaco" action="/vitrine/reserva/deleta" method="post" commandName="reserva">
+		      			<form:input value="${itemReserva.idReserva}" type="hidden" path="idReserva"/>
+		      			<button type="submit" id="btsalvar" class="btn btn-danger"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Deletar</button>
+		      	</form:form>
   		</tr>
   	</c:forEach>
   </tbody>
