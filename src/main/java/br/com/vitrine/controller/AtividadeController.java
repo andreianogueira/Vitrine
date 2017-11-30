@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,6 +36,24 @@ public class AtividadeController {
 	public ModelAndView formularioAtividade() {
 		Atividade atividade = new Atividade();
 		ModelAndView modelAtividade = new ModelAndView("atividade/CadastroDeAtividade");
+		modelAtividade.addObject("atividade", atividade);
+		modelAtividade.addObject("listaAtividade", repo.findAll());
+		return modelAtividade;
+	}
+	
+	@PostMapping("/deleta")
+	public ModelAndView deletarAtividade(@ModelAttribute("atividade") @Valid Atividade atividade, BindingResult result) {
+		repo.delete(atividade);
+		ModelAndView modelAtividade = new ModelAndView("atividade/CadastroDeAtividade");
+		modelAtividade.addObject("atividade", new Atividade());
+		modelAtividade.addObject("mensagem", "Deletado com sucesso");
+		return modelAtividade;
+	}
+	
+	@GetMapping("/altera/{id}")
+	public ModelAndView alteraAtividade(@PathVariable("id")int id) {
+		Atividade atividade = repo.getOne(id);
+		ModelAndView modelAtividade = new ModelAndView("atividade/CadastraDeAtividade");
 		modelAtividade.addObject("atividade", atividade);
 		modelAtividade.addObject("listaAtividade", repo.findAll());
 		return modelAtividade;

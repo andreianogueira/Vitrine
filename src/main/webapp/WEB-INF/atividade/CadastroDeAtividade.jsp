@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>VITRINE </title>
 
@@ -86,7 +88,84 @@
 
 		</div>
 
-<table class="table table-sm">
+<hr>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<button type="button" class="btn btn-info">Adicionar Atividade</button>
+					</div>
+				</div>
+
+		<form:form name="formatividade" id="formatividade" action="/vitrine/aviso/cadastra" method="post" commandName="atividade">
+			<br/>
+			
+				<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="email"  path="nomeAtividade">Atividade:</form:label>
+						<form:input type="text" class="form-control" id="atividade" path="nomeAtividade" maxlength="30" size="30" /> 
+					</div>
+				</div>
+
+				<form:input value="${atividade.idAtividade}" type="hidden" path="idAtividade"/>
+
+				<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="nome" path="descricaoAtividade">Descrição:</form:label>
+						<form:input value="${atividade.descricaoAtividade}" type="text" class="form-control" name="descricao" path="descricaoAtividade" id="descricao" maxlength="50" size="50" />
+					</div>
+				</div>
+
+				
+		
+				<div class="row">
+					<div class="form-group col-md-6 col-sm-6">
+					<form:label for="cbLocal" path="faixaEtaria">Faixa etária:</form:label>
+					<select id=cbLocal name=cbLocal value="${atividade.faixaEtaria}" path="faixaEtaria" class="form-control">
+					    <option value="0"> </option>
+					    <option value="0-4">0-4</option>
+					    <option value="5-14">5-14</option>
+					    <option value="15-21">15-21</option>
+					    <option value="22-59">22-59</option>
+					    <option value="60+">60+</option>
+						</select>
+					</div>
+
+					<div class="form-group col-md-6 col-sm-6">
+						<form:label for="inputdefault" path="localAtividade">Local:</form:label>
+						<form:input value="${atividade.localAtividade}" type="text" class="form-control dinheiro" name="local" path="localAtividade" id="local" maxlength="50" size="50" />
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label for="hora" path="horarioAtividade">Horário:</form:label>
+						<form:input value="${atividade.horarioAtividade}" type="text" class="form-control hora" name="horarioAtividade" path="horarioAtividade" id="horaatividade" maxlength="10" size="10" />
+					</div>
+					
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label for="dia" path="diaSemana">Dia da semana:</form:label>
+						<form:input value="${atividade.diaSemana}" type="text" id="dia" path="diaSemana" name="dia" class="form-control" maxlength="10" size="10" />
+					</div>
+
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label for="inputdefault" path="precoAtividade">Preço:</form:label>
+						<form:input value="${atividade.precoAtividade}" type="text" class="form-control dinheiro" path="precoAtividade" name="valorproduto" maxlength="14" size="14" />
+					</div>
+					
+				</div>
+				
+				<hr>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
+						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
+					</div>
+				</div>
+
+			</form:form>	
+			
+			<table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -111,86 +190,17 @@
   		<td>${itemAtividade.horarioAtividade}</td>
   		<td>${itemAtividade.diaSemana}</td>
   		<td>${itemAtividade.precoAtividade}</td>
+  		<td>
+  		<a href="/vitrine/atividade/altera/${itemAtividade.idAtividade}" class="btn btn-info">editar</a>
+		      	<form:form name="formatividade" id="formatividade" action="/vitrine/atividade/deleta" method="post" commandName="atividade">
+		      			<form:input value="${itemAtividade.idAtividade}" type="hidden" path="idAtividade"/>
+		      			<button type="submit" id="btsalvar" class="btn btn-danger"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Deletar</button>
+  				</form:form>
   	</tr>	
   	</c:forEach>
   </tbody>
 </table>
 
-<hr>
-				<div class="row">
-					<div class="col-md-12 col-sm-12">
-						<button type="button" class="btn btn-info">Adicionar Atividade</button>
-					</div>
-				</div>
-
-		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" commandName="atividade">
-			<br/>
-			
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email"  path="nomeAtividade">Atividade:</form:label>
-						<form:input type="text" class="form-control" id="atividade" path="nomeAtividade" maxlength="30" size="30" /> 
-					</div>
-				</div>
-
-
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="nome" path="descricaoAtividade">Descrição:</form:label>
-						<form:input type="text" class="form-control" name="descricao" path="descricaoAtividade" id="descricao" maxlength="50" size="50" />
-					</div>
-				</div>
-
-				
-		
-				<div class="row">
-					<div class="form-group col-md-6 col-sm-6">
-					<form:label for="cbLocal" path="faixaEtaria">Faixa etária:</form:label>
-					<select id=cbLocal name=cbLocal path="faixaEtaria" class="form-control">
-					    <option value="0"> </option>
-					    <option value="1">0-4</option>
-					    <option value="2">5-14</option>
-					    <option value="3">15-21</option>
-					    <option value="4">22-59</option>
-					    <option value="5">60+</option>
-						</select>
-					</div>
-
-					<div class="form-group col-md-6 col-sm-6">
-						<form:label for="inputdefault" path="localAtividade">Local:</form:label>
-						<form:input type="text" class="form-control dinheiro" name="local" path="localAtividade" id="local" maxlength="50" size="50" />
-					</div>
-
-				</div>
-
-				<div class="row">
-
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="hora" path="horarioAtividade">Horário:</form:label>
-						<form:input type="text" class="form-control hora" name="horarioAtividade" path="horarioAtividade" id="horaatividade" maxlength="10" size="10" />
-					</div>
-					
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="dia" path="diaSemana">Dia da semana:</form:label>
-						<form:input type="text" id="dia" path="diaSemana" name="dia" class="form-control" maxlength="10" size="10" />
-					</div>
-
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="inputdefault" path="precoAtividade">Preço:</form:label>
-						<form:input type="text" class="form-control dinheiro" path="precoAtividade" name="valorproduto" maxlength="14" size="14" />
-					</div>
-					
-				</div>
-				
-				<hr>
-				<div class="row">
-					<div class="col-md-12 col-sm-12">
-						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
-						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
-					</div>
-				</div>
-
-			</form:form>	
 	</section>	
 
 			</div>
