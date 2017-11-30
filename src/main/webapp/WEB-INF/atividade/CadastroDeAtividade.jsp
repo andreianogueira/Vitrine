@@ -95,18 +95,19 @@
 					</div>
 				</div>
 
-		<form:form name="formatividade" id="formatividade" action="/vitrine/aviso/cadastra" method="post" commandName="atividade">
+		<form:form name="formatividade" id="formatividade" action="/vitrine/atividade/cadastra" method="post" commandName="atividade">
 			<br/>
+			
+			<form:input value="${atividade.idAtividade}" type="hidden" path="idAtividade"/>
 			
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="email"  path="nomeAtividade">Atividade:</form:label>
-						<form:input type="text" class="form-control" id="atividade" path="nomeAtividade" maxlength="30" size="30" /> 
+						<form:input value="${atividade.nomeAtividade}" type="text" class="form-control" id="atividade" path="nomeAtividade" maxlength="30" size="30" /> 
 					</div>
 				</div>
 
-				<form:input value="${atividade.idAtividade}" type="hidden" path="idAtividade"/>
-
+				
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="nome" path="descricaoAtividade">Descrição:</form:label>

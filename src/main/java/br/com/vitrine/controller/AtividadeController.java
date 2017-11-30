@@ -53,7 +53,7 @@ public class AtividadeController {
 	@GetMapping("/altera/{id}")
 	public ModelAndView alteraAtividade(@PathVariable("id")int id) {
 		Atividade atividade = repo.getOne(id);
-		ModelAndView modelAtividade = new ModelAndView("atividade/CadastraDeAtividade");
+		ModelAndView modelAtividade = new ModelAndView("atividade/CadastroDeAtividade");
 		modelAtividade.addObject("atividade", atividade);
 		modelAtividade.addObject("listaAtividade", repo.findAll());
 		return modelAtividade;
