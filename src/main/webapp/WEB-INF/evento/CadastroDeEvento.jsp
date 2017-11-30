@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>       
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -88,10 +89,70 @@
 
 		</div>
 
-			<form:form name="formevento" id="formevento" action="cadastra" method="post" modelAttribute= "evento">
+			<form:form name="formevento" id="formevento" action="/vitrine/evento/cadastra" method="post" modelAttribute= "evento">
 				<br/>
 
-<table class="table table-sm">
+		<form:input value="${evento.idEvento}" type="hidden" path="idEvento"/>
+
+<hr>	
+
+					<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<button type="button" class="btn btn-info">Adicionar Evento</button>
+				</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="email" path="nomeEvento">Nome:</form:label>
+						<form:input value="${evento.nomeEvento}" type="text" class="form-control" path="nomeEvento" id="nome" maxlength="30" size="30"/>			
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="nome" path="descricaoEvento">Descrição:</form:label>
+						<form:input value="${evento.descricaoEvento}" type="text" class="form-control" name="descricao" path="descricaoEvento" id="descricao" maxlength="50" size="50"/>
+					</div>
+				</div>
+				
+				<div class="row">
+
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label for="hora" path="horarioEvento">Horário:</form:label>
+						<form:input value="${evento.horarioEvento}" type="text" class="form-control" path="horarioEvento" id="horario" name="horario" maxlength="25" size="25"/>
+					</div>
+					
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label for="inputdefault" path="dataEvento">Data:</form:label>
+						<form:input value="${evento.dataEvento}" type="date" class="form-control data" name="dataproduto" path="dataEvento" id="dataproduto" maxlength="10" size="10"/>
+					</div>
+
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label for="inputdefault" path="precoEvento">Preço:</form:label>
+						<form:input value="${evento.precoEvento}" type="text" class="form-control dinheiro" name="valorevento" path="precoEvento" maxlength="14" size="14"/>
+					</div>
+					
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="nome" path="localEvento">Local:</form:label>
+						<form:input value="${evento.localEvento}" type="text" class="form-control" name="local" path="localEvento" id="local" maxlength="50" size="50"/>
+					</div>
+				</div>				
+
+				<hr>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
+						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
+					</div>
+				</div>
+				
+		</form:form>
+		
+		<table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -114,68 +175,17 @@
   			<td>${itemEvento.dataEvento}</td>
   			<td>${itemEvento.precoEvento}</td>
   			<td>${itemEvento.localEvento}</td>
+  			<td>
+  				<a href="/vitrine/evento/altera/${itemEvento.idEvento}" class="btn btn-info">editar</a>
+		      	<form:form name="formevento" id="formevento" action="/vitrine/evento/deleta" method="post" commandName="evento">
+		      			<form:input value="${itemEvento.idEvento}" type="hidden" path="idEvento"/>
+		      			<button type="submit" id="btsalvar" class="btn btn-danger"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Deletar</button>
+		      	</form:form>
   		</tr>
   	</c:forEach>
   </tbody>
-</table>		
+</table>
 
-<hr>	
-
-					<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<button type="button" class="btn btn-info">Adicionar Evento</button>
-				</div>
-				</div>
-				
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="nomeEvento">Nome:</form:label>
-						<form:input type="text" class="form-control" path="nomeEvento" id="nome" maxlength="30" size="30"/>			
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="nome" path="descricaoEvento">Descrição:</form:label>
-						<form:input type="text" class="form-control" name="descricao" path="descricaoEvento" id="descricao" maxlength="50" size="50"/>
-					</div>
-				</div>
-				
-				<div class="row">
-
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="hora" path="horarioEvento">Horário:</form:label>
-						<form:input type="text" class="form-control" path="horarioEvento" id="horario" name="horario" maxlength="25" size="25"/>
-					</div>
-					
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="inputdefault" path="dataEvento">Data:</form:label>
-						<form:input type="date" class="form-control data" name="dataproduto" path="dataEvento" id="dataproduto" maxlength="10" size="10"/>
-					</div>
-
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="inputdefault" path="precoEvento">Preço:</form:label>
-						<form:input type="text" class="form-control dinheiro" name="valorevento" path="precoEvento" maxlength="14" size="14"/>
-					</div>
-					
-				</div>
-				
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="nome" path="localEvento">Local:</form:label>
-						<form:input type="text" class="form-control" name="local" path="localEvento" id="local" maxlength="50" size="50"/>
-					</div>
-				</div>				
-
-				<hr>
-				<div class="row">
-					<div class="col-md-12 col-sm-12">
-						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
-						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
-					</div>
-				</div>
-				
-		</form:form>
 	</section>
 	</div>
 </body>

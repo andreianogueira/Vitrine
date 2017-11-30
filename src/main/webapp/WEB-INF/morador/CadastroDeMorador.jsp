@@ -83,11 +83,62 @@
 		</div>
 		</c:if>
 		
-		<div id="mensagens" class="alert alert-danger" style="display:none">
-
-		</div>
+		<div id="mensagens" class="alert alert-danger" style="display:none"></div>
 		
-		<table class="table table-sm">
+
+		<form:form name="formcliente" id="formcliente" action="/vitrine/morador/cadastra" method="post" modelAttribute= "morador">
+			<br/>
+
+				<form:input value="${morador.idMorador}" type="hidden" path="idMorador"/>
+				
+				<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="email" path="nomeMorador">Nome morador:</form:label>
+						<form:input value="${morador.nomeMorador}" type="text" class="form-control" path="nomeMorador" id="atividade" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label for="nome" path="bloco">Bloco:</form:label>
+						<form:input value="${morador.bloco}" type="text" class="form-control" path="bloco" name="descricao" id="descricao" maxlength="50" size="50" />
+					</div>
+
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label for="inputdefault" path="apartamento">Apartamento:</form:label>
+						<form:input value="${morador.apartamento}" type="text" class="form-control dinheiro" path="apartamento" name="local" id="local" maxlength="50" size="50" />
+					</div>
+					<div class="form-group col-md-4 col-sm-4">
+						<form:label path="telefone">Telefone:</form:label>
+						<form:input value="${morador.telefone}" type="text" id="telefone" path="telefone" class="form-control" name="telefone" maxlength="14" />
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="email" path="email">Email:</form:label>
+						<form:input value="${morador.email}" type="email" path="email" class="form-control" name="email" maxlength="30" size="30" title="Informe um e-mail válido" />
+					</div>
+				</div>
+				
+				<hr>
+				
+				
+				<hr>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
+						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
+						<button type="button" class="btn btn-info">Adicionar Dependente</button>
+					</div>
+				</div>
+
+			
+		</form:form>
+					
+<table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -108,61 +159,16 @@
   			<td>${itemMorador.apartamento}</td>
   			<td>${itemMorador.telefone}</td>
   			<td>${itemMorador.email}</td>
+  			<td>
+  				<a href="/vitrine/morador/altera/${itemMorador.idMorador}" class="btn btn-info">editar</a>
+		      	<form:form name="formmorador" id="formmorador" action="/vitrine/morador/deleta" method="post" commandName="morador">
+		      			<form:input value="${itemMorador.idMorador}" type="hidden" path="idMorador"/>
+		      			<button type="submit" id="btsalvar" class="btn btn-danger"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Deletar</button>
+		      	</form:form>
   		</tr>
   	</c:forEach>
   </tbody>
 </table>
-
-		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" modelAttribute= "morador">
-			<br/>
-
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="nomeMorador">Nome morador:</form:label>
-						<form:input type="text" class="form-control" path="nomeMorador" id="atividade" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
-						
-					</div>
-				</div>
-
-
-				<div class="row">
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="nome" path="bloco">Bloco:</form:label>
-						<form:input type="text" class="form-control" path="bloco" name="descricao" id="descricao" maxlength="50" size="50" />
-					</div>
-
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label for="inputdefault" path="apartamento">Apartamento:</form:label>
-						<form:input type="text" class="form-control dinheiro" path="apartamento" name="local" id="local" maxlength="50" size="50" />
-					</div>
-					<div class="form-group col-md-4 col-sm-4">
-						<form:label path="telefone">Telefone:</form:label>
-						<form:input type="text" id="telefone" path="telefone" class="form-control" name="telefone" maxlength="14" />
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="email">Email:</form:label>
-						<form:input type="email" path="email" class="form-control" name="email" maxlength="30" size="30" title="Informe um e-mail válido" />
-					</div>
-				</div>
-				
-				<hr>
-				
-				
-				<hr>
-				<div class="row">
-					<div class="col-md-12 col-sm-12">
-						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
-						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
-						<button type="button" class="btn btn-info">Adicionar Dependente</button>
-					</div>
-				</div>
-
-			</div> 
-				
-					</form:form>
 	</section>
 
 </body>
