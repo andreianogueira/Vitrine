@@ -87,12 +87,71 @@
 
 		</div>
 
-		<form:form name="formcliente" id="formcliente" action="cadastra" method="post" modelAttribute= "sugestao">
+		<form:form name="formcliente" id="formcliente" action="/vitrine/sugestao/cadastra" method="post" modelAttribute= "sugestao">
 			<fieldset>
 
 					<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-					
+
+				<div class="row">
+				<div class="form-group col-md-12 col-sm-12">
+						<button type="button" class="btn btn-info">Fazer sugestão</button>
+				</div>
+				</div>
+				
+				<form:input value="${sugestao.idSugestao}" type="hidden" path="idSugestao"/>
+				
+				<div class="row">
+				<div class="form-group col-md-12 col-sm-12">
+						<form:label for="email" path="idMorador">Id do morador:</form:label>
+						<form:input value="${sugestao.idMorador}" type="text" class="form-control" path="idMorador" id="nome" maxlength="30" size="30" /> 
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="email" path="nomeMorador">Nome do morador:</form:label>
+						<form:input value="${sugestao.nomeMorador}" type="text" class="form-control" path="nomeMorador" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						
+					</div>
+				</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="email" path="bloco">Bloco:</form:label>
+						<form:input value="${sugestao.bloco}" type="text" class="form-control" path="bloco" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						
+					</div>
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="email" path="apartamento">Apartamento:</form:label>
+						<form:input value="${sugestao.apartamento}" type="text" class="form-control" path="apartamento" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="email" path="descricaoSugestao">Sugestão:</form:label>
+						<form:input value="${sugestao.descricaoSugestao}" type="text" class="form-control" path="descricaoSugestao" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						
+					</div>
+					<div class="form-group col-md-12 col-sm-12">
+						<form:label for="email" path="resposta">Resposta:</form:label>
+						<form:input value="${sugestao.resposta}" type="text" class="form-control" path="resposta" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
+						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
+					</div>
+				</div>
+				
+				</div>
+				</div>
+			</fieldset>
+
+		</form:form>
+
 <table class="table table-sm">
   <thead>
     <tr>
@@ -114,67 +173,16 @@
   			<td>${itemSugestao.apartamento}</td>
   			<td>${itemSugestao.descricaoSugestao}</td>
   			<td>${itemSugestao.resposta}</td>
+  			<td>
+  				<a href="/vitrine/sugestao/altera/${itemSugestao.idSugestao}" class="btn btn-info">editar</a>
+		      	<form:form name="formsugestao" id="formsugestao" action="/vitrine/sugestao/deleta" method="post" commandName="sugestao">
+		      			<form:input value="${itemSugestao.idSugestao}" type="hidden" path="idSugestao"/>
+		      			<button type="submit" id="btsalvar" class="btn btn-danger"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Deletar</button>
+		      	</form:form>
   		</tr>
   	</c:forEach>
   </tbody>
 </table>
-
-				<div class="row">
-				<div class="form-group col-md-12 col-sm-12">
-						<button type="button" class="btn btn-info">Fazer sugestão</button>
-				</div>
-				</div>
-				
-				<div class="row">
-				<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="idMorador">Id do morador:</form:label>
-						<form:input type="text" class="form-control" path="idMorador" id="nome" maxlength="30" size="30" /> 
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="nomeMorador">Nome do morador:</form:label>
-						<form:input type="text" class="form-control" path="nomeMorador" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
-						
-					</div>
-				</div>
-				</div>
-				
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="bloco">Bloco:</form:label>
-						<form:input type="text" class="form-control" path="bloco" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
-						
-					</div>
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="apartamento">Apartamento:</form:label>
-						<form:input type="text" class="form-control" path="apartamento" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
-						
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="descricaoSugestao">Sugestão:</form:label>
-						<form:input type="text" class="form-control" path="descricaoSugestao" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
-						
-					</div>
-					<div class="form-group col-md-12 col-sm-12">
-						<form:label for="email" path="resposta">Resposta:</form:label>
-						<form:input type="text" class="form-control" path="resposta" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
-						
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="col-md-12 col-sm-12">
-						<button type="submit" id="btsalvar" class="btn btn-success"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Salvar</button>
-						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
-					</div>
-				</div>
-				
-				</div>
-				</div>
-			</fieldset>
-
-		</form:form>
 
 	</section>
 	</div>
