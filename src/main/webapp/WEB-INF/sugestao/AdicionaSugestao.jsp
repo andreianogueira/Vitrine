@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -87,7 +88,8 @@
 
 		</div>
 
-		<form:form name="formcliente" id="formcliente" action="/vitrine/sugestao/cadastra" method="post" modelAttribute= "sugestao">
+		<form:form name="formsugestao
+		" id="formsugestao" action="/vitrine/sugestao/cadastra" method="post" commandName= "sugestao">
 			<fieldset>
 
 					<div class="row">
@@ -175,7 +177,7 @@
   			<td>${itemSugestao.resposta}</td>
   			<td>
   				<a href="/vitrine/sugestao/altera/${itemSugestao.idSugestao}" class="btn btn-info">editar</a>
-		      	<form:form name="formsugestao" id="formsugestao" action="/vitrine/sugestao/deleta" method="post" commandName="sugestao">
+		      	<form:form name="formsugestao" id="sugestao" action="/vitrine/sugestao/deleta" method="post" commandName="sugestao">
 		      			<form:input value="${itemSugestao.idSugestao}" type="hidden" path="idSugestao"/>
 		      			<button type="submit" id="btsalvar" class="btn btn-danger"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Deletar</button>
 		      	</form:form>
