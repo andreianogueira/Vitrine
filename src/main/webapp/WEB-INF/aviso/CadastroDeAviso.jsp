@@ -46,7 +46,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
 					<a class="nav-link" href="CadastroDeMoradores.html">Morador</a>
-				</li>
+				</li> 
 				<li class="nav-item">
 					<a class="nav-link" href="CadastroDeAtividade.html">Atividades</a>
 				</li>
@@ -88,7 +88,7 @@
 
 		</div>
 
-		<form:form name="formaviso" id="formaviso" action="/vitrine/aviso/cadastra" method="post" commandName="aviso">
+	 <form:form name="formaviso" id="formaviso" action="/vitrine/aviso/cadastra" method="post" commandName="aviso">
 			<fieldset>
 
 				<div class="row">
@@ -97,7 +97,7 @@
 					</div>
 				</div>
 					
-					<form:input value="${aviso.idAviso}" type="hidden" path="idAviso"/>
+		<form:input value="${aviso.idAviso}" type="hidden" path="idAviso"/>
 				
 					<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
@@ -128,8 +128,10 @@
 				</div>
 			</fieldset>
 
-		</form:form>
+		</form:form> 
+		
 		<br><br>
+		
 		<table class="table table-sm">
 		  <thead>
 		    <tr>
@@ -137,7 +139,7 @@
 		      <th scope="col">Título</th>
 		      <th scope="col">Descrição</th>
 		      <th scope="col">Data</th>
-		      <th scope="col">Opções</th>
+		      <th scope="col">Opções</th> 
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -147,12 +149,12 @@
 		      <td>${itemAviso.tituloAviso}</td>
 		      <td>${itemAviso.descricaoAviso}</td>
 		      <td>${itemAviso.data}</td>
-		      <td>
+	          <td>
 		      	<a href="/vitrine/aviso/altera/${itemAviso.idAviso}" class="btn btn-info">editar</a>
 		      	<form:form name="formaviso" id="formaviso" action="/vitrine/aviso/deleta" method="post" commandName="aviso">
 		      			<form:input value="${itemAviso.idAviso}" type="hidden" path="idAviso"/>
 		      			<button type="submit" id="btsalvar" class="btn btn-danger"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Deletar</button>
-		      	</form:form>
+		      	</form:form> 
 		    </tr>
 		  </c:forEach>
 		  </tbody>

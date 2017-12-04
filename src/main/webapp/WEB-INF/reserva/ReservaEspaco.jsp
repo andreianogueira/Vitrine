@@ -42,9 +42,9 @@
 				</button>
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
+			    <li class="nav-item active">
 					<a class="nav-link" href="CadastroDeMoradores.html">Morador<span class="sr-only">(current)</span></a>
-				</li>
+				</li> 
 				<li class="nav-item">
 					<a class="nav-link" href="CadastroDeAtividade.html">Atividades</a>
 				</li>
@@ -99,13 +99,13 @@
 				</div>
 				
 				<form:input value="${reserva.idReserva}" type="hidden" path="idReserva"/>
-				
-				<div class="row">
-					<div class="form-group col-md-12 col-sm-12">
+			
+			   <div class="row">
+					 <div class="form-group col-md-12 col-sm-12">
 						<form:label for="email" path="idMorador">Id do morador:</form:label>
 						<form:input type="text" value="${reserva.idMorador}" class="form-control" path="idMorador" id="nome" maxlength="30" size="30" /> 
 						
-					</div>
+					</div> 
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="email" path="nomeMorador">Nome do morador:</form:label>
 						<form:input type="text" value="${reserva.nomeMorador}" class="form-control" path="nomeMorador" id="nome" maxlength="30" size="30" /> 
@@ -116,12 +116,12 @@
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="email" path="bloco">Bloco:</form:label>
-						<form:input value="${reserva.bloco}" type="text" class="form-control" path="bloco" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						<form:input value="${reserva.bloco}" type="text" class="form-control" path="bloco" id="nome" maxlength="30" size="30" /> 
 						
 					</div>
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="email" path="apartamento">Apartamento:</form:label>
-						<form:input value="${reserva.apartamento}" type="text" class="form-control" path="apartamento" id="nome" maxlength="30" size="30" /> <!-- title="Informe um e-mail válido" --> 
+						<form:input value="${reserva.apartamento}" type="text" class="form-control" path="apartamento" id="nome" maxlength="30" size="30" /> 
 						
 					</div>
 				</div>
