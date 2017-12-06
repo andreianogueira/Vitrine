@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.vitrine.model.Atividade;
 import br.com.vitrine.repository.AtividadeRepository;
@@ -23,12 +24,11 @@ public class AtividadeController {
 	AtividadeRepository repo;
 	
 	@PostMapping("/cadastra")
-	public ModelAndView cadastraAtividade(@ModelAttribute("atividade") @Valid Atividade atividade, BindingResult result) {
+	public ModelAndView cadastraAtividade(@ModelAttribute("atividade") @Valid Atividade atividade, BindingResult result, RedirectAttributes redirectAttributes) {
 		System.out.println(atividade);
 		repo.save(atividade);
-		ModelAndView modelAtividade = new ModelAndView("atividade/CadastroDeAtividade");
-		modelAtividade.addObject("atividade", new Atividade());
-		modelAtividade.addObject("mensagem", "salvo com sucesso");
+		ModelAndView modelAtividade = new ModelAndView("redirect:formulario");
+		redirectAttributes.addFlashAttribute("mensagem", "salvo com sucesso");
 		return modelAtividade;
 	}
 	
@@ -42,11 +42,10 @@ public class AtividadeController {
 	}
 	
 	@PostMapping("/deleta")
-	public ModelAndView deletarAtividade(@ModelAttribute("atividade") @Valid Atividade atividade, BindingResult result) {
+	public ModelAndView deletarAtividade(@ModelAttribute("atividade") @Valid Atividade atividade, BindingResult result, RedirectAttributes redirectAttributes) {
 		repo.delete(atividade);
-		ModelAndView modelAtividade = new ModelAndView("atividade/CadastroDeAtividade");
-		modelAtividade.addObject("atividade", new Atividade());
-		modelAtividade.addObject("mensagem", "Deletado com sucesso");
+		ModelAndView modelAtividade = new ModelAndView("redirect:formulario");
+		redirectAttributes.addFlashAttribute("mensagem", "Deletado com sucesso");
 		return modelAtividade;
 	}
 	

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.vitrine.model.Sugestao;
 import br.com.vitrine.repository.SugestaoRepository;
@@ -23,12 +24,11 @@ public class SugestaoController {
 	SugestaoRepository repo;
 	
 	@PostMapping("/cadastra")
-	public ModelAndView cadastraSugestao(@ModelAttribute("sugestao") @Valid Sugestao sugestao, BindingResult result) {
+	public ModelAndView cadastraSugestao(@ModelAttribute("sugestao") @Valid Sugestao sugestao, BindingResult result, RedirectAttributes redirectAttributes) {
 		System.out.println(sugestao);
 		repo.save(sugestao);
-		ModelAndView modelSugestao = new ModelAndView("sugestao/AdicionaSugestao");
-		modelSugestao.addObject("sugestao", new Sugestao());
-		modelSugestao.addObject("mensagem", "salvo com sucesso");
+		ModelAndView modelSugestao = new ModelAndView("redirect:formulario");
+		redirectAttributes.addFlashAttribute("mensagem", "salvo com sucesso");
 		return modelSugestao;
 	}
 	
@@ -42,11 +42,10 @@ public class SugestaoController {
 	}
 	
 	@PostMapping("/deleta")
-	public ModelAndView deletarSugestao(@ModelAttribute("sugestao") @Valid Sugestao sugestao, BindingResult result) {
+	public ModelAndView deletarSugestao(@ModelAttribute("sugestao") @Valid Sugestao sugestao, BindingResult result, RedirectAttributes redirectAttributes) {
 		repo.delete(sugestao);
-		ModelAndView modelSugestao = new ModelAndView("sugestao/AdicionaSugestao");
-		modelSugestao.addObject("sugestao", new Sugestao());
-		modelSugestao.addObject("mensagem", "Deletado com sucesso");
+		ModelAndView modelSugestao = new ModelAndView("redirect:formulario");
+		redirectAttributes.addFlashAttribute("mensagem", "deletado com sucesso");
 		return modelSugestao;
 	}
 	

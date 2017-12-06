@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.vitrine.model.Aviso;
 import br.com.vitrine.repository.AvisoRepository;
@@ -23,13 +24,11 @@ public class AvisoController {
 	AvisoRepository repo;
 
 	@PostMapping("/cadastra")
-	public ModelAndView cadastraAviso(@ModelAttribute("aviso") @Valid Aviso aviso, BindingResult result) {
+	public ModelAndView cadastraAviso(@ModelAttribute("aviso") @Valid Aviso aviso, BindingResult result, RedirectAttributes redirectAttributes) {
 		System.out.println(aviso);
 		repo.save(aviso);
-		ModelAndView modelAviso = new ModelAndView("aviso/CadastroDeAviso");
-		modelAviso.addObject("aviso", new Aviso());
-		modelAviso.addObject("mensagem", "salvo com sucesso");
-		return modelAviso;
+		redirectAttributes.addFlashAttribute("mensagem", "salvo com sucesso");
+		return new ModelAndView("redirect:formulario");
 	}
 	
 	@GetMapping("/formulario")
@@ -42,16 +41,14 @@ public class AvisoController {
 	}
 	
 	@PostMapping("/deleta")
-	public ModelAndView deletarAviso(@ModelAttribute("aviso") @Valid Aviso aviso, BindingResult result) {
+	public ModelAndView deletarAviso(@ModelAttribute("aviso") @Valid Aviso aviso, BindingResult result, RedirectAttributes redirectAttributes) {
 		repo.delete(aviso);
-		ModelAndView modelAviso = new ModelAndView("aviso/CadastroDeAviso");
-		modelAviso.addObject("aviso", new Aviso());
-		modelAviso.addObject("mensagem", "Deletado com sucesso");
-		return modelAviso;
+		redirectAttributes.addFlashAttribute("mensagem", "deletado com sucesso");
+		return new ModelAndView("redirect:formulario");
 	}
 	
 	@GetMapping("/altera/{id}")
-	public ModelAndView alteraAviso(@PathVariable("id") int id) {
+	public ModelAndView alteraAviso(@PathVariable("id") int id,RedirectAttributes redirectAttributes) {
 		Aviso aviso = repo.getOne(id);
 		ModelAndView modelAviso = new ModelAndView("aviso/CadastroDeAviso");
 		modelAviso.addObject("aviso", aviso);

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.vitrine.model.Dependente;
 import br.com.vitrine.repository.DependenteRepository;
@@ -23,12 +24,11 @@ public class DependenteController {
 	DependenteRepository repo;
 	
 	@PostMapping("/cadastra")
-	public ModelAndView cadastraDependente(@ModelAttribute("dependente") @Valid Dependente dependente, BindingResult result) {
+	public ModelAndView cadastraDependente(@ModelAttribute("dependente") @Valid Dependente dependente, BindingResult result, RedirectAttributes redirectAttributes) {
 		System.out.println(dependente);
 		repo.save(dependente);
-		ModelAndView modelDependente = new ModelAndView("dependente/CadastroDeDependente");
-		modelDependente.addObject("dependente", new Dependente());
-		modelDependente.addObject("mensagem", "salvo com sucesso");
+		ModelAndView modelDependente = new ModelAndView("redirect:formulario");
+		redirectAttributes.addFlashAttribute("mensagem", "salvo com sucesso");
 		return modelDependente;
 	}
 	
@@ -42,11 +42,10 @@ public class DependenteController {
 	}
 	
 	@PostMapping("/deleta")
-	public ModelAndView deletarDependente(@ModelAttribute("dependente") @Valid Dependente dependente, BindingResult result) {
+	public ModelAndView deletarDependente(@ModelAttribute("dependente") @Valid Dependente dependente, BindingResult result, RedirectAttributes redirectAttributes) {
 		repo.delete(dependente);
-		ModelAndView modelDependente = new ModelAndView("dependente/CadastroDeDependente");
-		modelDependente.addObject("dependente", new Dependente());
-		modelDependente.addObject("mensagem", "Deletado com sucesso");
+		ModelAndView modelDependente = new ModelAndView("redirect:formulario");
+		redirectAttributes.addFlashAttribute("mensagem", "deletado com sucesso");
 		return modelDependente;
 	}
 	

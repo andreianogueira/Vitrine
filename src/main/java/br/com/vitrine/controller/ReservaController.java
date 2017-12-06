@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.vitrine.model.Reserva;
 import br.com.vitrine.repository.ReservaRepository;
@@ -23,12 +24,11 @@ public class ReservaController {
 	ReservaRepository repo;
 	
 	@PostMapping("/cadastra")
-	public ModelAndView cadastraReserva(@ModelAttribute("reserva") @Valid Reserva reserva, BindingResult result) {
+	public ModelAndView cadastraReserva(@ModelAttribute("reserva") @Valid Reserva reserva, BindingResult result, RedirectAttributes redirectAttributes) {
 		System.out.println(reserva);
 		repo.save(reserva);
-		ModelAndView modelReserva = new ModelAndView("reserva/ReservaEspaco");
-		modelReserva.addObject("reserva", new Reserva());
-		modelReserva.addObject("mensagem", "salvo com sucesso");
+		ModelAndView modelReserva = new ModelAndView("redirect:formulario");
+		redirectAttributes.addFlashAttribute("mensagem", "salvo com sucesso");
 		return modelReserva;
 	}
 	
@@ -42,11 +42,10 @@ public class ReservaController {
 	}
 	
 	@PostMapping("/deleta")
-	public ModelAndView deletarReserva(@ModelAttribute("reserva") @Valid Reserva reserva, BindingResult result) {
+	public ModelAndView deletarReserva(@ModelAttribute("reserva") @Valid Reserva reserva, BindingResult result, RedirectAttributes redirectAttributes) {
 		repo.delete(reserva);
-		ModelAndView modelReserva = new ModelAndView("reserva/ReservaEspaco");
-		modelReserva.addObject("reserva", new Reserva());
-		modelReserva.addObject("mensagem", "Deletado com sucesso");
+		ModelAndView modelReserva = new ModelAndView("redirect:formulario");
+		redirectAttributes.addFlashAttribute("mensagem", "deletado com sucesso");
 		return modelReserva;
 	}
 	

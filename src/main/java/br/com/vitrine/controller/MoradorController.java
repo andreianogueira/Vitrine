@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.vitrine.model.Morador;
 import br.com.vitrine.repository.MoradorRepository;
@@ -23,12 +24,11 @@ public class MoradorController {
 	MoradorRepository repo;
 	
 	@PostMapping("/cadastra")
-	public ModelAndView cadastraMorador(@ModelAttribute("morador") @Valid Morador morador, BindingResult result) {
+	public ModelAndView cadastraMorador(@ModelAttribute("morador") @Valid Morador morador, BindingResult result, RedirectAttributes redirectAttributes) {
 		System.out.println(morador);
 		repo.save(morador);
-		ModelAndView modelMorador = new ModelAndView("morador/CadastroDeMorador");
-		modelMorador.addObject("morador", new Morador());
-		modelMorador.addObject("mensagem", "salvo com sucesso");
+		ModelAndView modelMorador = new ModelAndView("redirect:formulario");
+		redirectAttributes.addFlashAttribute("mensagem", "salvo com sucesso");
 		return modelMorador;
 	}
 	
@@ -42,11 +42,10 @@ public class MoradorController {
 	}
 	
 	@PostMapping("/deleta")
-	public ModelAndView deletarMorador(@ModelAttribute("morador") @Valid Morador morador, BindingResult result) {
+	public ModelAndView deletarMorador(@ModelAttribute("morador") @Valid Morador morador, BindingResult result, RedirectAttributes redirectAttributes) {
 		repo.delete(morador);
-		ModelAndView modelMorador = new ModelAndView("morador/CadastroDeMorador");
-		modelMorador.addObject("morador", new Morador());
-		modelMorador.addObject("mensagem", "Deletado com sucesso");
+		ModelAndView modelMorador = new ModelAndView("redirect:formulario");
+		redirectAttributes.addFlashAttribute("mensagem", "deletado com sucesso");
 		return modelMorador;
 	}
 	
