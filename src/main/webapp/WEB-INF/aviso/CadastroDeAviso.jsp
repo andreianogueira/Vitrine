@@ -34,6 +34,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="<c:url value="/bootstrap/js/bootstrap.min.js"></c:url>"></script>
 
+<style>
+.aviso {
+    display: none;
+}
+</style>
+
 </head>
 <body>
 
@@ -108,7 +114,7 @@ function myFunction() {
 					</div>
 				</div>
 				
-<div id="cadastroDeAviso">		
+<div id="cadastroDeAviso" class="aviso">		
 		<form:input value="${aviso.idAviso}" type="hidden" path="idAviso"/>
 				
 					<div class="row">

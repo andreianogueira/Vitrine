@@ -32,6 +32,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="<c:url value="/bootstrap/js/bootstrap.min.js"></c:url>"></script>
 
+<style>
+.espaco {
+    display: none;
+}
+</style>
+
 </head>
 <body>
 
@@ -77,6 +83,17 @@
 				</div>
 			</div>
 
+<script>			
+function myFunction() {
+    var x = document.getElementById("reservaEspaco");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+
 		<c:if test = "${not empty mensagem}">	
 		<div class="alert alert-success" >
  			 <strong>Sucesso!</strong> <c:out value="${mensagem}"/>
@@ -94,9 +111,11 @@
 
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<button type="button" class="btn btn-info">Reservar Espaço</button>
+						<button type="button" onclick="myFunction()" class="btn btn-info">Reservar Espaço</button>
 					</div>
 				</div>
+
+<div id="reservaEspaco" class="espaco">
 				
 				<form:input value="${reserva.idReserva}" type="hidden" path="idReserva"/>
 			
@@ -151,7 +170,7 @@
 						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
 					</div>
 				</div>
-
+</div>
 			</fieldset>
 
 					</form:form>

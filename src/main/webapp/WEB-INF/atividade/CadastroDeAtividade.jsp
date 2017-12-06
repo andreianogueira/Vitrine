@@ -34,6 +34,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="<c:url value="/bootstrap/js/bootstrap.min.js"></c:url>"></script>
 
+<style>
+.atividade {
+    display: none;
+}
+</style>
 
 </head>
 <body>
@@ -109,7 +114,7 @@ function myFunction() {
 		<form:form name="formatividade" id="formatividade" action="/vitrine/atividade/cadastra" method="post" commandName="atividade">
 			<br/>
 
-<div id="cadastroDeAtividade">			
+<div id="cadastroDeAtividade" class="atividade">			
 			<form:input value="${atividade.idAtividade}" type="hidden" path="idAtividade"/>
 			
 				<div class="row">

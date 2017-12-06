@@ -35,7 +35,7 @@
   <script src="<c:url value="/bootstrap/js/bootstrap.min.js"></c:url>"></script>
 
 <style>
-p {
+.p {
     display: none;
 }
 </style>

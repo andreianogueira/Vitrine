@@ -33,6 +33,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="<c:url value="/bootstrap/js/bootstrap.min.js"></c:url>"></script>
 
+<style>
+.evento {
+    display: none;
+}
+</style>
+
 </head>
 <body>
 
@@ -79,6 +85,17 @@
 				</div>
 			</div>
 
+<script>			
+function myFunction() {
+    var x = document.getElementById("cadastroDeEvento");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+
 		<c:if test = "${not empty mensagem}">	
 		<div class="alert alert-success" >
  			 <strong>Sucesso!</strong> <c:out value="${mensagem}"/>
@@ -98,10 +115,11 @@
 
 					<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<button type="button" class="btn btn-info">Adicionar Evento</button>
+						<button type="button" onclick="myFunction()" class="btn btn-info">Adicionar Evento</button>
 				</div>
 				</div>
-				
+
+<div id="cadastroDeEvento" class="evento">			
 				<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
 						<form:label for="email" path="nomeEvento">Nome:</form:label>
@@ -149,7 +167,7 @@
 						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
 					</div>
 				</div>
-				
+	</div>			
 		</form:form>
 		
 		<table class="table table-sm">
