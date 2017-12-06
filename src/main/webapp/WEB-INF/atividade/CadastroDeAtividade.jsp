@@ -78,6 +78,17 @@
 				</div>
 			</div>
 
+<script>			
+function myFunction() {
+    var x = document.getElementById("cadastroDeAtividade");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+
 		<c:if test = "${not empty mensagem}">	
 		<div class="alert alert-success" >
  			 <strong>Sucesso!</strong> <c:out value="${mensagem}"/>
@@ -91,13 +102,14 @@
 <hr>
 				<div class="row">
 					<div class="col-md-12 col-sm-12">
-						<button type="button" class="btn btn-info">Adicionar Atividade</button>
+						<button type="button" onclick="myFunction()" class="btn btn-info">Adicionar Atividade</button>
 					</div>
 				</div>
 
 		<form:form name="formatividade" id="formatividade" action="/vitrine/atividade/cadastra" method="post" commandName="atividade">
 			<br/>
-			
+
+<div id="cadastroDeAtividade">			
 			<form:input value="${atividade.idAtividade}" type="hidden" path="idAtividade"/>
 			
 				<div class="row">
@@ -163,9 +175,9 @@
 						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
 					</div>
 				</div>
-
+</div>
 			</form:form>	
-			
+
 			<table class="table table-sm">
   <thead>
     <tr>

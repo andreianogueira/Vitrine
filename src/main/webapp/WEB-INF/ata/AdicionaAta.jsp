@@ -6,6 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>VITRINE</title>
@@ -32,6 +33,12 @@
   <link rel="stylesheet" href="<c:url value="/bootstrap/css/bootstrap.min.css"></c:url>"></link>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="<c:url value="/bootstrap/js/bootstrap.min.js"></c:url>"></script>
+
+<style>
+p {
+    display: none;
+}
+</style>
 
 </head>
 <body>
@@ -77,6 +84,17 @@
 					<h3 class="display-4 text-center ">Atas</h3>
 				</div>
 			</div>
+
+<script>			
+function myFunction() {
+    var x = document.getElementById("adicionaAta");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
 			
 			<c:if test = "${not empty mensagem}">	
 		<div class="alert alert-success" >
@@ -93,12 +111,14 @@
 
 <hr>	
 
+
 					<div class="row">
 					<div class="form-group col-md-12 col-sm-12">
-						<button type="button" class="btn btn-info">Atas</button>
+						<button type="button" onclick="myFunction()" class="btn btn-info">Atas</button>
+				</div>
 				</div>
 				
-				</div>
+<div id="adicionaAta" class="p">				
 				
 				<form:input value="${ata.idAta}" type="hidden" path="idAta"/>
 				
@@ -128,9 +148,11 @@
 						<button type="button" class="btn btn-danger btlimpar"><span class="oi oi-trash" title="icon plus" aria-hidden="true"></span> Limpar</button>
 					</div>
 				</div>
+</div>
 			</fieldset>
 
 		</form:form>
+</div>	
 <br><br>
 <table class="table table-sm">
   <thead>
@@ -161,6 +183,6 @@
 </table>
 
 	</section>
-</div>
+
 </body>
 </html>

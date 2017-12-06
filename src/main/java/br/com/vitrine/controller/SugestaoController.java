@@ -45,7 +45,7 @@ public class SugestaoController {
 	public ModelAndView deletarSugestao(@ModelAttribute("sugestao") @Valid Sugestao sugestao, BindingResult result) {
 		repo.delete(sugestao);
 		ModelAndView modelSugestao = new ModelAndView("sugestao/AdicionaSugestao");
-		modelSugestao.addObject("Sugestao", new Sugestao());
+		modelSugestao.addObject("sugestao", new Sugestao());
 		modelSugestao.addObject("mensagem", "Deletado com sucesso");
 		return modelSugestao;
 	}
