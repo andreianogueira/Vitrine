@@ -70,20 +70,13 @@
                 width: 40%;
             }
         </style>
-			<button type="button" class="btn btn-dark medio">Morador</button> 
-
-<script>
-function abrirJanela(url){
-window.open(url,'CadastroDeMorador.jsp','toolbar=no,left=0,top=0,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=400,height=300');
-}
-</script>
-			
-			<button type="button" class="btn btn-dark medio">Atividade</button><br><br>
-			<button type="button" class="btn btn-dark medio">Avisos</button>
-			<button type="button" class="btn btn-dark medio">Atas</button><br><br>
-			<button type="button" class="btn btn-dark medio">Eventos</button>
-			<button type="button" class="btn btn-dark medio">Sugestões</button><br><br>
-			<button type="button" class="btn btn-dark medio">Espaços</button>
+			<button type="button" onclick="location.href='morador/formulario'" class="btn btn-dark medio">Morador</button> 
+			<button type="button" onclick="location.href='atividade/formulario'" class="btn btn-dark medio">Atividade</button><br><br>
+			<button type="button" onclick="location.href='aviso/formulario'" class="btn btn-dark medio">Avisos</button>
+			<button type="button" onclick="location.href='ata/formulario'" class="btn btn-dark medio">Atas</button><br><br>
+			<button type="button" onclick="location.href='evento/formulario'" class="btn btn-dark medio">Eventos</button>
+			<button type="button" onclick="location.href='sugestao/formulario'" class="btn btn-dark medio">Sugestões</button><br><br>
+			<button type="button" onclick="location.href='reserva/formulario'" class="btn btn-dark medio">Espaços</button>
 		</div>
 		</fieldset>
 		</form>

@@ -43,32 +43,32 @@
 <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-		<a class="navbar-brand" href="home.html">VITRINE</a>
+		<a class="navbar-brand" href="/vitrine/home.jsp">VITRINE</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="CadastroDeMoradores.html">Morador</a>
+					<a class="nav-link" href="/vitrine/morador/formulario">Morador</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="CadastroDeAtividade.html">Atividades</a>
+					<a class="nav-link" href="/vitrine/atividade/formulario">Atividades</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="CadastroDeAviso.html">Avisos</a>
+					<a class="nav-link" href="/vitrine/aviso/formulario">Avisos</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="AdicionaAta.html">Atas</a>
+					<a class="nav-link" href="/vitrine/ata/formulario" >Atas<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="CadastroDeEventos.html">Eventos</a>
-				</li>
+					<a class="nav-link" href="/vitrine/evento/formulario">Eventos</a>
+				</li> 
 				<li class="nav-item active">
-					<a class="nav-link" href="Sugestao.html">Sugestões<span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="/vitrine/sugestao/formulario">Sugestões</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="ReservaEspaco.html">Espaços</a>
+					<a class="nav-link" href="/vitrine/reserva/formulario">Espaços</a>
 				</li>
 			</ul>
 		</div>
