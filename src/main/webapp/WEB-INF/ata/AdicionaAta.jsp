@@ -77,6 +77,9 @@
 		    	<li>
 		    		<a class="nav-link" href="#">Bem-vindo: <security:authentication property="principal.username"/></a>
 		    	</li>
+		    	<li>
+		    		<a class="nav-link" href="/vitrine/logout">SAIR</a>
+		    	</li>
 	    	</ul>
 		</div>
 	</nav>
