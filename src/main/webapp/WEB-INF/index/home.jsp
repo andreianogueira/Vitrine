@@ -4,6 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>    
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,6 +42,14 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 		</button>
+    	<ul class="navbar-nav ml-auto">
+	    	<li>
+	    		<a class="nav-link" href="#">Bem-vindo: <security:authentication property="principal.username"/></a>
+	    	</li>
+	    	<li>
+	    		<a class="nav-link" href="/vitrine/logout">SAIR</a>
+	    	</li>
+    	</ul>
 	</nav>
 	
 	<div id="main" class="container-fluid"><br>
