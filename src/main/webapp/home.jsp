@@ -71,6 +71,13 @@
             }
         </style>
 			<button type="button" class="btn btn-dark medio">Morador</button> 
+
+<script>
+function abrirJanela(url){
+window.open(url,'CadastroDeMorador.jsp','toolbar=no,left=0,top=0,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=400,height=300');
+}
+</script>
+			
 			<button type="button" class="btn btn-dark medio">Atividade</button><br><br>
 			<button type="button" class="btn btn-dark medio">Avisos</button>
 			<button type="button" class="btn btn-dark medio">Atas</button><br><br>
