@@ -52,7 +52,7 @@ public class AtaController {
 	@GetMapping("/altera/{id}")
 	public ModelAndView alteraAviso(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
 		Ata ata = repo.getOne(id);
-		ModelAndView modelAta = new ModelAndView("ata/");
+		ModelAndView modelAta = new ModelAndView("ata/AdicionaAta");
 		modelAta.addObject("ata", ata);
 		modelAta.addObject("listaAta", repo.findAll());
 		return modelAta;
