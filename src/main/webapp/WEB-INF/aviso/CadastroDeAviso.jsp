@@ -45,7 +45,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-		<a class="navbar-brand" href="/vitrine/home.jsp">VITRINE</a>
+		<a class="navbar-brand" href="/vitrine/home">VITRINE</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>

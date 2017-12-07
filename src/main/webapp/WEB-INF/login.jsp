@@ -16,9 +16,17 @@
 <title>Casa do Código</title>
 </head>
 <body>
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">VITRINE</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		</button>
+	</nav>
+	
 	<div class="container">
 	<br><br>
-	<h1>Login do Vitrine</h1>
+	<h1 aligne="center">Bem Vindo ao Vitrine!</h1>
 	
 		<form:form servletRelativeAction="/login" method="post">
 		<div class="form-group">
