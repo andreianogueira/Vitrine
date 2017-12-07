@@ -114,8 +114,7 @@ function myFunction() {
 
 		</div>
 
-		<form:form name="formsugestao
-		" id="formsugestao" action="/vitrine/sugestao/cadastra" method="post" commandName= "sugestao">
+		<form:form name="formsugestao" id="formsugestao" action="/vitrine/sugestao/cadastra" method="post" commandName= "sugestao">
 			<fieldset>
 
 					<div class="row">
@@ -206,7 +205,7 @@ function myFunction() {
   			<td>${itemSugestao.resposta}</td>
   			<td>
   				<a href="/vitrine/sugestao/altera/${itemSugestao.idSugestao}" class="btn btn-info">editar</a>
-		      	<form:form name="formsugestao" id="sugestao" action="/vitrine/sugestao/deleta" method="post" commandName="sugestao">
+		      	<form:form name="formsugestao" id="formsugestao" action="/vitrine/sugestao/deleta" method="post" commandName="sugestao">
 		      			<form:input value="${itemSugestao.idSugestao}" type="hidden" path="idSugestao"/>
 		      			<button type="submit" id="btsalvar" class="btn btn-danger"><span class="oi oi-plus" title="icon plus" aria-hidden="true"></span> Deletar</button>
 		      	</form:form>
